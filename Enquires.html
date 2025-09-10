@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,6 +6,8 @@
   <title>Course Details – Empowering The Nation</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
+
+
 </head>
 <body>
   <header class="topbar">
@@ -17,8 +20,8 @@
     <a href="index.html">Home</a>
     <a href="six-week.html">6-Week Course</a>
     <a href="six-month.html">6-Month Course</a>
-    <a href="Enquiries.html">Enquiries</a>
-    <a href="#">Contact Us</a>
+    <a href="Enquires.html">Enquiries</a>
+    <a href="contact.html">Contact Us</a>
     
   </nav>
     
@@ -27,35 +30,220 @@
     <div class="details-section" style="margin-bottom:20px;">
       <h3 class="section-title" style="font-size:24px;">Your Details</h3>
       <form id="registrationForm">
-        <div class="form-group">
-          <label for="title">Title</label>
-          <input type="text" id="title" name="title" placeholder="Mr/Mrs/Ms">
-        </div>
+         <div class="enquiries-form-group">
+           <label for="title">Title</label>
+           <input type="text" id="title" name="title" placeholder="Mr/Mrs/Ms">
+         </div>
 
-        <div class="form-group">
-            <label for="firstName">First Name</label>
-            <input type="text" id="firstName" name="firstName" required>
-          </div>
-          <div class="form-group">
-            <label for="surname">Surname</label>
-            <input type="text" id="surname" name="surname" required>
-          </div>
-          <div class="form-group">
-            <label for="mobile">Mobile Number</label>
-            <input type="tel" id="mobile" name="mobile" required>
-          </div>
-          <div class="form-group">
-            <label for="email">Email Address</label>
-            <input type="email" id="email" name="email" required>
-          </div>
+         <div class="enquiries-form-group">
+             <label for="firstName">First Name</label>
+             <input type="text" id="firstName" name="firstName" required>
+           </div>
+           <div class="enquiries-form-group">
+             <label for="surname">Surname</label>
+             <input type="text" id="surname" name="surname" required>
+           </div>
+           <div class="enquiries-form-group">
+             <label for="mobile">Mobile Number</label>
+             <input type="tel" id="mobile" name="mobile" required>
+           </div>
+           <div class="enquiries-form-group">
+             <label for="email">Email Address</label>
+             <input type="email" id="email" name="email" required>
+           </div>
         </form>
       </div>
 
       <div class="courses-section">
         <h3 class="section-title" style="font-size:24px;">Courses Available</h3>
-        <h4 style="margin-bottom: 15px; color: #555;">6 Week Course</h4>
-        <table class="course-table">
+         <h4 style="margin-bottom: 15px; color: #555;">6 Week Course</h4>
+         <table class="enquiries-course-table">
 
 
+       <tbody>
+             <tr>
+               <td>Child Minding</td>
+               <td class="enquiries-price">R750</td>
+               <td><input type="checkbox" name="courses" value="child-minding"></td>
+             </tr>
+             <tr>
+               <td>Cooking</td>
+               <td class="enquiries-price">R750</td>
+               <td><input type="checkbox" name="courses" value="cooking"></td>
+             </tr>
+             <tr>
+               <td>Garden Maintenance</td>
+               <td class="enquiries-price">R750</td>
+               <td><input type="checkbox" name="courses"
+                 value="garden-maintenance"></td>
+             </tr>
+           </tbody>
+         </table>
 
+         <h4 style="margin: 25px 0 15px 0; color: #555;">6 Month
+           Course</h4>
+         <table class="enquiries-course-table">
+           <tbody>
+             <tr>
+               <td>First Aid</td>
+               <td class="enquiries-price">R1500</td>
+               <td><input type="checkbox" name="courses" value="first-aid"></td>
+             </tr>
+             <tr>
+               <td>Sewing</td>
+               <td class="enquiries-price">R1500</td>
+               <td><input type="checkbox" name="courses" value="sewing"></td>
+             </tr>
+             <tr>
+               <td>Landscaping</td>
+               <td class="enquiries-price">R1500</td>
+               <td><input type="checkbox" name="courses" value="landscaping"></td>
+             </tr>
+             <tr>
+               <td>Life Skills</td>
+               <td class="enquiries-price">R1500</td>
+               <td><input type="checkbox" name="courses" value="life-skills"></td>
+             </tr>
+           </tbody>
+         </table>
+
+         <div style="margin: 25px 0;">
+           <button type="button" class="enquiries-btn enquiries-btn-primary" onclick="calculateCost()">Calculate Cost</button>
+           <button type="button" class="enquiries-btn enquiries-btn-secondary" onclick="enquire()">Enquire</button>
+         </div>
+
+         <div class="enquiries-cost-calculator" id="costCalculator" style="display: none;">
+           <div class="enquiries-cost-item">
+             <span>Amount:</span>
+             <span id="amount">R0</span>
+           </div>
+           <div class="enquiries-cost-item">
+             <span>Discount:</span>
+             <span id="discount">R0</span>
+           </div>
+           <div class="enquiries-cost-item">
+             <strong>Total:</strong>
+             <strong id="total">R0</strong>
+           </div>
+         </div>
+      </div>
+    </section>
+
+    </div>
+  <footer>
+    <div class="col"><strong>Quick Links</strong><br><br>Home<br>6 Month Course<br>6 Week Course</div>
+    <div class="col" style="text-align:center;"><img src="assets/logo.png" alt="" style="height:48px;"></div>
+    <div class="col"><strong>Get In Contact</strong><br><br>021 696 7405<br>empoweringthenation@gmail.com</div>
+  </footer>
+
+<script>
+   function calculateCost() {
+     const checkboxes = document.querySelectorAll('input[name="courses"]:checked');
+     
+     if (checkboxes.length === 0) {
+       alert('Please select at least one course to calculate the cost.');
+       return;
+     }
+     
+     let total = 0;
+     let discount = 0;
+     
+     checkboxes.forEach(checkbox => {
+       const row = checkbox.closest('tr');
+       const priceElement = row.querySelector('.enquiries-price');
+       if (priceElement) {
+         const priceText = priceElement.textContent;
+         const price = parseInt(priceText.replace('R', ''));
+         if (!isNaN(price)) {
+           total += price;
+         }
+       }
+     });
+     
+     const courseCount = checkboxes.length;
+     if (courseCount >= 3) {
+       discount = total * 0.15;
+     } else if (courseCount >= 2) {
+       discount = total * 0.10;
+     }
+     
+     const finalTotal = total - discount;
+     
+     // Update the cost calculator display
+     document.getElementById('amount').textContent = `R${total}`;
+     document.getElementById('discount').textContent = `R${discount.toFixed(0)}`;
+     document.getElementById('total').textContent = `R${finalTotal.toFixed(0)}`;
+     document.getElementById('costCalculator').style.display = 'block';
+     
+     // Scroll to the cost calculator
+     document.getElementById('costCalculator').scrollIntoView({ behavior: 'smooth' });
+   }
+
+  function enquire() {
+    const form = document.getElementById('registrationForm');
+    const selectedCourses = Array.from(document.querySelectorAll('input[name="courses"]:checked'))
+      .map(cb => cb.closest('tr').querySelector('td').textContent);
+    
+    if (selectedCourses.length === 0) {
+      alert('Please select at least one course.');
+      return;
+    }
+    
+    if (!form.checkValidity()) {
+      alert('Please fill in all required fields.');
+      return;
+    }
+    
+    // Get form data
+    const formData = new FormData(form);
+    const firstName = formData.get('firstName');
+    const surname = formData.get('surname');
+    const mobile = formData.get('mobile');
+    const email = formData.get('email');
+    
+    alert(`Thank you for your enquiry, ${firstName} ${surname}!\n\nSelected courses: ${selectedCourses.join(', ')}\n\nWe will contact you at ${mobile} or ${email} within 24 hours.`);
+    
+    // Reset form after successful submission
+    form.reset();
+    document.querySelectorAll('input[name="courses"]').forEach(checkbox => {
+      checkbox.checked = false;
+    });
+    document.getElementById('costCalculator').style.display = 'none';
+  }
+
+   // Add click functionality to table rows
+   document.querySelectorAll('.enquiries-course-table tr').forEach(row => {
+     row.addEventListener('click', function(e) {
+       // Don't trigger if clicking directly on the checkbox
+       if (e.target.type === 'checkbox') {
+         return;
+       }
+       
+       const checkbox = this.querySelector('input[type="checkbox"]');
+       if (checkbox) {
+         checkbox.checked = !checkbox.checked;
+         
+         // Trigger change event for any listeners
+         const event = new Event('change', { bubbles: true });
+         checkbox.dispatchEvent(event);
+       }
+     });
+     
+     // Add hover effect
+     row.style.cursor = 'pointer';
+   });
    
+   // Add visual feedback for checkbox changes
+   document.querySelectorAll('input[name="courses"]').forEach(checkbox => {
+     checkbox.addEventListener('change', function() {
+       const row = this.closest('tr');
+       if (this.checked) {
+         row.style.backgroundColor = '#f0f8ff';
+       } else {
+         row.style.backgroundColor = '';
+       }
+     });
+   });
+  </script>
+</body>
+</html>

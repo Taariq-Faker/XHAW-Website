@@ -70,33 +70,84 @@ const COURSE_DATA = {
 function renderCourseList(type, mountId) {
   const list = COURSE_DATA[type] || [];
   const mount = document.getElementById(mountId);
-  if (!mount) return;
+  if (!mount) {
+    console.error(`Element with id "${mountId}" not found`);
+    return;
+  }
+  
+  if (list.length === 0) {
+    mount.innerHTML = "<p>No courses available at the moment.</p>";
+    return;
+  }
+  
   mount.innerHTML = "";
   list.forEach(c => {
     const card = document.createElement("div");
     card.className = "card";
     card.innerHTML = `
-      <img src="${c.img}" alt="">
+      <img src="${c.img}" alt="${c.name} course image" loading="lazy">
       <h3>${c.name}</h3>
       <p>${c.purpose}</p>
-      <a class="btn" href="course.html?type=${encodeURIComponent(type)}&slug=${encodeURIComponent(c.slug)}">More Info</a>
+      <a class="btn" href="course.html?type=${encodeURIComponent(type)}&slug=${encodeURIComponent(c.slug)}" 
+         onclick="return validateCourseLink('${type}', '${c.slug}')">More Info</a>
     `;
     mount.appendChild(card);
   });
+}
+
+function validateCourseLink(type, slug) {
+  const course = (COURSE_DATA[type] || []).find(c => c.slug === slug);
+  if (!course) {
+    alert('Course not found. Please try again.');
+    return false;
+  }
+  return true;
 }
 
 function renderCourseDetail() {
   const params = new URLSearchParams(location.search);
   const type = params.get("type");
   const slug = params.get("slug");
+  
+  if (!type || !slug) {
+    console.error("Missing type or slug parameters");
+    document.getElementById("courseTitle").textContent = "Course Not Found";
+    return;
+  }
+  
   const course = (COURSE_DATA[type] || []).find(c => c.slug === slug);
-  if (!course) return;
+  if (!course) {
+    console.error(`Course not found: ${type}/${slug}`);
+    document.getElementById("courseTitle").textContent = "Course Not Found";
+    return;
+  }
+  
+  // Update course details
   document.getElementById("courseTitle").textContent = course.name;
   document.getElementById("courseImg").src = course.img;
+  document.getElementById("courseImg").alt = `${course.name} course image`;
   document.getElementById("purposeText").textContent = course.purpose;
+  
+  // Update content list
   const listEl = document.getElementById("contentList");
-  listEl.innerHTML = "";
-  course.content.forEach(item => { const li=document.createElement("li"); li.textContent=item; listEl.appendChild(li); });
-  document.getElementById("fees").textContent = "R" + course.price;
-  document.getElementById("backLink").href = type==="6-month" ? "six-month.html" : "six-week.html";
+  if (listEl) {
+    listEl.innerHTML = "";
+    course.content.forEach(item => { 
+      const li = document.createElement("li"); 
+      li.textContent = item; 
+      listEl.appendChild(li); 
+    });
+  }
+  
+  // Update fees
+  const feesEl = document.getElementById("fees");
+  if (feesEl) {
+    feesEl.textContent = "R" + course.price;
+  }
+  
+  // Update back link
+  const backLink = document.getElementById("backLink");
+  if (backLink) {
+    backLink.href = type === "6-month" ? "six-month.html" : "six-week.html";
+  }
 }
