@@ -30,20 +30,23 @@ body { margin:0; font-family: system-ui, -apple-system, Segoe UI, Arial, sans-se
 .topbar nav a:hover { text-decoration:underline; }
 
 .container {
-  max-width:980px; margin:26px auto; background:#fff; padding:24px;
+  max-width:1200px; margin:26px auto; background:#fff; padding:40px;
   border-radius:6px; border:1px solid #e2e2e2;
 }
+.container p { font-size:18px; line-height:1.6; }
 
 .section-title {
   font-family: Georgia, 'Times New Roman', serif;
   text-align:center; font-size:32px; margin:8px 0 20px;
 }
 
-.grid { display:grid; gap:22px; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
-.card { border:1px solid #ddd; background:#fafafa; padding:14px; }
+.grid { display:grid; gap:22px; grid-template-columns: repeat(4, 1fr); }
+.grid#weekList, #weekList { grid-template-columns: repeat(3, 1fr); }
+.card { border:1px solid #ddd; background:#fafafa; padding:14px; display:flex; flex-direction:column; }
 .card img { width:100%; height:150px; object-fit:cover; background:#e9e9e9; }
 .card h3 { margin:10px 0 6px; font-weight:700; }
 .card p { margin:0 0 12px; line-height:1.4; }
+.card .btn { margin-top:auto; align-self:center; }
 .btn {
   background:#1e34c2; color:#fff; border:none; padding:10px 12px;
   cursor:pointer; font-weight:600; text-decoration:none; display:inline-block;
@@ -171,6 +174,9 @@ ul.clean { margin:0; padding-left:18px; }
 .enquiries-price {
   font-weight: 600;
   color: #4A3AFF;
+  text-align: right;
+  width: 80px;
+  min-width: 80px;
 }
 
 .enquiries-btn {
