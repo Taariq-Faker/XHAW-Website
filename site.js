@@ -9,7 +9,7 @@ const COURSE_DATA = {
       slug: "child-minding",
       name: "Child Minding",
       price: 750,
-      img: "https://via.placeholder.com/420x260?text=Child+Minding",
+      img: "Images/Course Images/Child Minding.jpg",
       purpose: "A child minding course provides training for individuals who want to care for children in a safe, nurturing, and stimulating environment.....",
       content: ["Child development and safety","Health, first aid basics","Nutrition and play-based learning","Educational toys & activities"]
     },
@@ -17,7 +17,7 @@ const COURSE_DATA = {
       slug: "cooking",
       name: "Cooking",
       price: 750,
-      img: "https://via.placeholder.com/420x260?text=Cooking",
+      img: "Images/Course Images/Cooking.jpg",
       purpose: "A Cooking course Teaches essential skills and techniques needed to prepare a variety of meals with confidence.....",
       content: ["Food safety & hygiene","Meal planning & budgeting","Ingredient preparation","Different cooking methods"]
     },
@@ -25,7 +25,7 @@ const COURSE_DATA = {
       slug: "garden-maintenance",
       name: "Garden Maintenance",
       price: 750,
-      img: "https://via.placeholder.com/420x260?text=Garden+Maintenance",
+      img: "Images/Course Images/Gardening.jpg",
       purpose: "A garden maintenance course provides training on how to care for and manage gardens effectively.....",
       content: ["Soil care, planting, pruning","Pest & disease management","Lawn care & seasonal upkeep","Basic garden design & layout"]
     }
@@ -36,7 +36,7 @@ const COURSE_DATA = {
       slug: "first-aid",
       name: "First Aid",
       price: 1500,
-      img: "https://via.placeholder.com/420x260?text=First+Aid",
+      img: "Images/Course Images/First Aid.webp",
       purpose: "A first aid course trains individuals to respond effectively in medical emergencies.....",
       content: ["CPR basics","Wound care","Treating burns","Managing choking/fractures"]
     },
@@ -44,7 +44,7 @@ const COURSE_DATA = {
       slug: "sewing",
       name: "Sewing",
       price: 1500,
-      img: "https://via.placeholder.com/420x260?text=Sewing",
+      img: "Images/Course Images/Sewing.jpeg",
       purpose: "A sewing course teaches fundamental skills to create, repair and alter garments or fabric items....",
       content: ["Hand stitching","Machine sewing","Pattern reading","Fabric selection"]
     },
@@ -52,7 +52,7 @@ const COURSE_DATA = {
       slug: "landscaping",
       name: "Landscaping",
       price: 1500,
-      img: "https://via.placeholder.com/420x260?text=Landscaping",
+      img: "Images/Course Images/Landscaping.jpg",
       purpose: "A landscaping course provides training in designing, planning, and maintaining outdoor spaces....",
       content: ["Plant selection","Soil preparation","Hardscaping basics","Sustainable practices"]
     },
@@ -60,7 +60,7 @@ const COURSE_DATA = {
       slug: "life-skills",
       name: "Life Skills",
       price: 1500,
-      img: "https://via.placeholder.com/420x260?text=Life+Skills",
+      img: "Images/Course Images/Life Skills.jpg",
       purpose: "A life skills course helps individuals develop essential abilities to manage daily life and personal growth effectively.....",
       content: ["Communication","Problem solving","Financial management","Interpersonal skills"]
     }
