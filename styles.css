@@ -51,13 +51,16 @@ body { margin:0; font-family: system-ui, -apple-system, Segoe UI, Arial, sans-se
 .btn:hover { filter:brightness(1.05); }
 
 footer {
-  margin-top:auto; background:#fff; color:#333; border-top:1px solid #e2e2e2;
+  margin-top:auto; background:#fff; color:#000; border-top:1px solid #e2e2e2;
   display:flex; gap:16px; justify-content:space-between; flex-wrap:wrap; padding:18px 16px;
 }
 footer .col { background:transparent; padding:0; border:none; border-radius:0; flex:1; }
 footer .footer-section { flex:1; min-width:220px; }
+footer .footer-section.social { display:flex; align-items:center; justify-content:center; text-align:center; }
+footer .footer-section:last-child { margin-left:auto; text-align:right; }
+footer .footer-section .logo img { display:block; margin:0 auto; max-width:80px; height:auto; }
 footer ul { list-style:none; margin:0; padding:0; }
-footer a { color:#1e34c2; text-decoration:none; }
+footer a { color:#000; text-decoration:none; }
 footer a:hover { text-decoration:underline; }
 
 .course-hero { display:grid; grid-template-columns: 1fr 1.4fr; gap:22px; }
