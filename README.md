@@ -23,14 +23,8 @@ To view the website, simply open the `index.html` file in your web browser.
 
 ## Screenshots
 
-Contact us page: (https://ibb.co/YTTcgzYy)
+Logo
+<img width="500" height="500" alt="EST 2022" src="https://github.com/user-attachments/assets/dc5826be-341e-4cc5-8d8b-390bf0596bb3" />
 
-Enquiry page: (https://ibb.co/27D3XqXy)
+Homepage
 
-Avaliable course page: (https://ibb.co/YFwH0mVc)
-
-6 Month courses page: (https://ibb.co/8gN28sNy)
-
-6 Week courses page: (https://ibb.co/gZTc0gMg)
-
-Home page: (https://ibb.co/XxzcJHCB)
